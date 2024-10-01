@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقالات جافا سكريبت - جوتكي للتعليم</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: #e8491d;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #35424a;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #35424a;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #e8491d;
+        }
+        
+        .thank-you {
+            display: none;
+            margin-top: 10px;
+            color: green;
+        }
+    </style>
+    <script>
+        function showThankYouMessage(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            document.getElementById("thank-you-message").style.display = "block"; // Show thank you message
+            document.querySelector("textarea").value = ""; // Clear the textarea
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>مقالات جافا سكريبت</h1>
+    </header>
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="programming.html">مقالات البرمجة</a>
+        <a href="cybersecurity.html">مقالات الأمن السيبراني</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="suggestions.html">اقتراحات</a>
+    </nav>
+
+    <div class="container">
+        <h2>أساسيات جافا سكريبت</h2>
+        <h3>مقدمة</h3>
+        <p>جافا سكريبت (JavaScript) هي لغة برمجة ديناميكية تُستخدم في تطوير الويب لجعل الصفحات التفاعلية والممتعة. تُعتبر جافا سكريبت واحدة من ثلاث تقنيات أساسية لتطوير الويب، إلى جانب HTML وCSS. في هذا المقال، سنتناول أساسيات جافا سكريبت ونتعرف على كيفية استخدامها.</p>
+
+        <h3>1. ما هي جافا سكريبت؟</h3>
+        <p>جافا سكريبت هي لغة برمجة تستخدم بشكل أساسي لإنشاء محتوى ديناميكي على صفحات الويب. تُستخدم لتفعيل التفاعلات على المواقع، مثل استجابة الأزرار، والتعديل على المحتوى، وإجراء العمليات الحسابية، وغيرها من المهام.</p>
+
+        <h3>2. تضمين جافا سكريبت في صفحة HTML</h3>
+        <p>يمكن تضمين كود جافا سكريبت في صفحة HTML باستخدام وسم <code>&lt;script&gt;</code>. يمكن أن يكون الكود داخل الصفحة نفسها أو في ملف خارجي. إليك مثالًا على كلا الطريقتين:</p>
+        
+        <h4>تضمين كود جافا سكريبت داخل الصفحة:</h4>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;مثال على جافا سكريبت&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;مرحبًا بكم في جافا سكريبت!&lt;/h1&gt;
+    &lt;button onclick="displayMessage()"&gt;اضغط هنا&lt;/button&gt;
+
+    &lt;script&gt;
+        function displayMessage() {
+            alert("أهلاً وسهلاً بك في جافا سكريبت!");
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        
+        <h4>تضمين كود جافا سكريبت من ملف خارجي:</h4>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;مثال على جافا سكريبت&lt;/title&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;مرحبًا بكم في جافا سكريبت!&lt;/h1&gt;
+    &lt;button onclick="displayMessage()"&gt;اضغط هنا&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <p>محتوى الملف <code>script.js</code> سيكون كما يلي:</p>
+        <pre><code>function displayMessage() {
+    alert("أهلاً وسهلاً بك في جافا سكريبت!");
+}</code></pre>
+
+        <h3>3. المتغيرات</h3>
+        <p>يمكنك تخزين البيانات في المتغيرات باستخدام الكلمة المفتاحية <code>let</code> أو <code>const</code>. إليك مثالًا:</p>
+        <pre><code>let name = "جودي";
+const age = 14;</code></pre>
+
+        <h3>4. الأنواع الأساسية للبيانات</h3>
+        <p>جافا سكريبت تدعم أنواع البيانات الأساسية التالية:</p>
+        <ul>
+            <li>String: سلسلة من الأحرف، مثل "Hello".</li>
+            <li>Number: الأرقام، مثل 42 أو 3.14.</li>
+            <li>Boolean: قيمتين، true أو false.</li>
+            <li>Object: مجموعة من القيم المرتبطة.</li>
+        </ul>
+
+        <h3>5. العبارات الشرطية</h3>
+        <p>تُستخدم العبارات الشرطية مثل <code>if</code> و<code>else</code> لتنفيذ كود بناءً على شروط معينة:</p>
+        <pre><code>let score = 85;
+
+if (score >= 60) {
+    console.log("لقد نجحت!");
+} else {
+    console.log("حاول مرة أخرى.");
+}</code></pre>
+
+        <h3>6. الحلقات</h3>
+        <p>تُستخدم الحلقات لتكرار تنفيذ كود معين. هناك عدة أنواع من الحلقات، مثل <code>for</code> و<code>while</code>:</p>
+        <pre><code>for (let i = 0; i &lt; 5; i++) {
+    console.log("الدورة رقم: " + i);
+}</code></pre>
+
+        <h3>7. الدوال</h3>
+        <p>تعتبر الدوال كتل من الكود يمكن إعادة استخدامها. إليك كيفية تعريف دالة:</p>
+        <pre><code>function greet(name) {
+    return "مرحبًا، " + name + "!";
+}
+
+console.log(greet("جودي"));</code></pre>
+
+        <h3>8. التعامل مع الأحداث</h3>
+        <p>يمكنك استخدام جافا سكريبت للتفاعل مع أحداث المستخدم مثل النقر على زر أو كتابة نص:</p>
+        <pre><code>&lt;button id="myButton"&gt;اضغط هنا&lt;/button&gt;
+
+&lt;script&gt;
+    document.getElementById("myButton").addEventListener("click", function() {
+        alert("تم الضغط على الزر!");
+    });
+&lt;/script&gt;</code></pre>
+
+        <h3>الخاتمة</h3>
+        <p>تُعتبر جافا سكريبت لغة برمجة قوية ومرنة. من خلال فهم الأساسيات التي تم تناولها في هذا المقال، يمكنك البدء في بناء تطبيقات ويب ديناميكية وتفاعلية. استمر في التعلم والتجريب لتحسين مهاراتك في جافا سكريبت!</p>
+
+        <h3>تواصل معنا</h3>
+        <form onsubmit="showThankYouMessage(event)">
+            <textarea rows="4" placeholder="اكتب اقتراحاتك هنا..."></textarea>
+            <button type="submit">إرسال</button>
+        </form>
+        <div id="thank-you-message" class="thank-you">شكرًا على اقتراحك!</div>
+    </div>
+</body>
+</html>
